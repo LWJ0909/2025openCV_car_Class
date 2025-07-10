@@ -77,3 +77,32 @@
 #         print('커피가 다 떨어졌습니다. 판매를 중지합니다.')
 #         break
 
+# import numpy as np
+
+# np.sin(np.array((0., 30., 45., 60., 90.)) *np.pi/180.)
+# print(np.sin(np.array((0., 30., 45., 60., 90.)) * np.pi / 180.))
+
+import numpy as np
+import cv2
+
+# image = cv2.imread('C:\\2024vacation\\image111\\sample1.jpg', cv2.IMREAD_UNCHANGED)
+
+# cv2.namedWindow("AutoMoon", cv2.WINDOW_NORMAL)
+# cv2.imshow("AutoMoon", image)
+# cv2.waitKey(0)  
+# cv2.destroyAllWindows()  
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    _,frame=cap.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    cv2.imshow('real', frame)
+    cv2.imshow('video', gray)
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+cap.release()
+cv2.destroyAllWindows()
