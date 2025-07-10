@@ -9,8 +9,8 @@ contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_S
 for cnt in contours:
     cv2.drawContours(img, [cnt], 0, (255, 0, 0), 3)
 
-    area = cv2.contourArea(cnt)
-    print(area)
+    hull = cv2.convexHull(cnt)
+    cv2.drawContours(img, [hull], 0, (255, 0, 255), 5)
 
 cv2.imshow('result', img)
 
